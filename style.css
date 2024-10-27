@@ -1,0 +1,96 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+.game-container {
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.player-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+#player-indicator {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+.player1 {
+  background-color: #003366;
+}
+
+.player2 {
+  background-color: #990000;
+}
+
+#board {
+  display: flex;
+  justify-content: center;
+  background-color: #808080;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.cell {
+  width: 70px;
+  height: 70px;
+  background-color: white;
+  border-radius: 50%;
+  margin: 2px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: 2px solid black;
+  box-sizing: border-box;
+}
+
+.cell.player1 {
+  background-color: #003366;
+}
+
+.cell.player2 {
+  background-color: #990000;
+}
+
+#reset-button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#reset-button:hover {
+  background-color: #45a049;
+}

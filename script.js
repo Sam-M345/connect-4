@@ -3,6 +3,9 @@ import { GameLogic } from "./game/gameLogic.js";
 import { UI } from "./game/ui.js";
 import { makeAIMove } from "./game/ai.js";
 
+let lastClickTime = 0;
+const CLICK_DELAY = 2000; // 2 seconds in milliseconds
+
 class Game {
   constructor() {
     this.board = new Board();
@@ -19,6 +22,13 @@ class Game {
 
     // Event Listeners
     this.board.element.addEventListener("click", async (e) => {
+      const now = Date.now();
+      if (now - lastClickTime < CLICK_DELAY) {
+        // Ignore the click if it's within the delay period
+        return;
+      }
+      lastClickTime = now; // Update the last click time
+
       const column = e.target.closest(".column");
       if (!column) return;
 

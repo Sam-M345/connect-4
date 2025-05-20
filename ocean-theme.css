@@ -41,22 +41,33 @@ body.ocean-theme {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Subtle shadow */
 }
 
-/* Styles for cells in ocean theme */
+/* Updated styles for cells in ocean theme - with mechanical borders */
 .ocean-theme .cell {
-  /* Empty cells */
-  background-color: var(--ocean-cell-bg) !important;
-  border: 2px solid #a0dae7; /* Lighter blue border for empty cells */
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1); /* Inner shadow for depth */
+  /* Base style for all cells (circles) in ocean theme */
+  border: 4px solid #000000; /* Solid black, thicker 'mechanical' border */
+  box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.35); /* Deeper inset shadow for the hole effect */
+  /* background-color will be set by more specific rules below or by default */
 }
 
+/* Background for EMPTY cells in Ocean theme */
+.ocean-theme .cell:not(.player1):not(.player2) {
+  background-color: var(
+    --ocean-cell-bg
+  ) !important; /* Sandy empty cells - inherits mechanical border and hole shadow*/
+}
+
+/* Filled cells for Player 1 - inherits mechanical border AND hole shadow */
 .ocean-theme .cell.player1 {
   background-color: var(--ocean-player1-color) !important;
-  border: 2px solid var(--ocean-player1-color);
+  border: 4px solid #000000 !important; /* Explicit solid black border */
+  /* No specific box-shadow here, so it inherits from .ocean-theme .cell */
 }
 
+/* Filled cells for Player 2 - inherits mechanical border AND hole shadow */
 .ocean-theme .cell.player2 {
   background-color: var(--ocean-player2-color) !important;
-  border: 2px solid var(--ocean-player2-color);
+  border: 4px solid #000000 !important; /* Explicit solid black border */
+  /* No specific box-shadow here, so it inherits from .ocean-theme .cell */
 }
 
 /* Styles for player indicator in ocean theme */

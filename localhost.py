@@ -17,4 +17,4 @@ print(f"Starting live-reloading server at http://localhost:{PORT}")
 print("Stop the server with Ctrl+C")
 
 # server.serve() is a blocking call
-server.serve(port=PORT, host='localhost', root='.') 
+server.serve(port=PORT, host='0.0.0.0', root='.') 

@@ -1,0 +1,140 @@
+/* Ocean Theme Styles Start */
+.ocean-theme {
+  --ocean-bg: linear-gradient(to bottom, #0077be, #00a8e0);
+  --ocean-board-bg: #87ceeb;
+  --ocean-cell-bg: #f5deb3; /* Wheat/sandy for empty cells */
+  --ocean-player1-color: #00008b; /* DarkBlue */
+  --ocean-player2-color: #ff0000; /* Solid Red */
+  --ocean-text-color: #ffffff;
+  --ocean-button-bg: #005f88;
+  --ocean-button-hover-bg: #004c6d;
+  --ocean-h1-color: #ffffff;
+  --ocean-player-info-color: #ffffff;
+  --ocean-author-link-color: #f0f8ff; /* AliceBlue for links */
+}
+
+body.ocean-theme {
+  background: var(--ocean-bg);
+  color: var(--ocean-text-color);
+}
+
+.ocean-theme h1 {
+  color: var(--ocean-h1-color);
+}
+
+.ocean-theme .author a {
+  /* Style links in author text */
+  color: var(--ocean-author-link-color);
+}
+
+.ocean-theme .player-info {
+  color: var(--ocean-player-info-color);
+}
+
+.ocean-theme .current-player-label {
+  background-color: transparent; /* Remove green from default */
+}
+
+.ocean-theme #board {
+  background-color: var(--ocean-board-bg);
+  border: 3px solid var(--ocean-player1-color); /* Thicker border */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+/* Styles for cells in ocean theme */
+.ocean-theme .cell {
+  /* Empty cells */
+  background-color: var(--ocean-cell-bg) !important;
+  border: 2px solid #a0dae7; /* Lighter blue border for empty cells */
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1); /* Inner shadow for depth */
+}
+
+.ocean-theme .cell.player1 {
+  background-color: var(--ocean-player1-color) !important;
+  border: 2px solid var(--ocean-player1-color);
+}
+
+.ocean-theme .cell.player2 {
+  background-color: var(--ocean-player2-color) !important;
+  border: 2px solid var(--ocean-player2-color);
+}
+
+/* Styles for player indicator in ocean theme */
+.ocean-theme #player-indicator.player1 {
+  background-color: var(--ocean-player1-color) !important;
+  border: 2px solid var(--ocean-text-color);
+}
+
+.ocean-theme #player-indicator.player2 {
+  background-color: var(--ocean-player2-color) !important;
+  border: 2px solid var(--ocean-text-color);
+}
+
+.ocean-theme .column:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Buttons in Ocean Theme */
+.ocean-theme #reset-button,
+.ocean-theme #ai-start-button,
+.ocean-theme #play-again {
+  background-color: var(--ocean-button-bg);
+  color: var(--ocean-text-color);
+  border: 1px solid var(--ocean-text-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.ocean-theme #reset-button:hover,
+.ocean-theme #ai-start-button:hover,
+.ocean-theme #play-again:hover {
+  background-color: var(--ocean-button-hover-bg);
+  border-color: var(--ocean-author-link-color); /* Lighter border on hover */
+}
+
+.ocean-theme #ai-start-button:disabled {
+  background-color: var(--ocean-button-bg); /* Keep color but change opacity */
+  opacity: 0.6;
+  border-color: var(--ocean-text-color);
+}
+
+/* Win Message Theming */
+.ocean-theme .win-message {
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+}
+.ocean-theme .win-message.ai-winner {
+  background: linear-gradient(
+    135deg,
+    var(--ocean-player2-color),
+    #a52a2a
+  ); /* Coral to Brown */
+  color: var(--ocean-text-color);
+}
+
+.ocean-theme .win-message.human-winner {
+  background: linear-gradient(
+    135deg,
+    var(--ocean-player1-color),
+    #000050
+  ); /* DarkBlue to darker */
+  color: var(--ocean-text-color);
+}
+.ocean-theme .win-message.draw {
+  /* If you implement a specific draw class */
+  background: linear-gradient(
+    135deg,
+    #708090,
+    #36454f
+  ); /* SlateGray to Charcoal */
+  color: var(--ocean-text-color);
+}
+
+.ocean-theme #play-again {
+  color: var(--ocean-button-bg);
+  background-color: var(--ocean-cell-bg);
+  border: 1px solid var(--ocean-button-bg);
+}
+.ocean-theme #play-again:hover {
+  background-color: var(--ocean-author-link-color);
+  color: var(--ocean-button-hover-bg);
+}
+/* Ocean Theme Styles End */

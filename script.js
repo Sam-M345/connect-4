@@ -89,4 +89,12 @@ class Game {
 }
 
 // Start the game when the page loads
-window.addEventListener("load", () => new Game());
+window.addEventListener("load", () => {
+  new Game();
+
+  // If ocean theme is active, set root variables for JS compatibility
+  if (document.body.classList.contains("ocean-theme")) {
+    document.documentElement.style.setProperty("--player1-color", "#00008b"); // Ocean P1
+    document.documentElement.style.setProperty("--player2-color", "#FF0000"); // Solid Red
+  }
+});

@@ -1,0 +1,29 @@
+# IDE/Editor specific
+.cursor/
+.vscode/
+.idea/
+
+# Python specific
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+env/
+*.env
+.Python
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Generated files (if you regenerate these)
+File_Tree.txt # Uncomment this if you want to ignore your file tree listings
+
+# Log files
+*.log
+
+# Project specific folders and files
+Design Docs/
+SOP's/
+MakeTree_Put this at root.bat 

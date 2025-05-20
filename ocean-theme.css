@@ -2,7 +2,7 @@
 .ocean-theme {
   --ocean-bg: linear-gradient(to bottom, #0077be, #00a8e0);
   --ocean-board-bg: #87ceeb;
-  --ocean-cell-bg: #f5deb3; /* Wheat/sandy for empty cells */
+  --ocean-cell-bg: #ecdac8; /* Linen - brighter, lighter sandy color */
   --ocean-player1-color: #00008b; /* DarkBlue */
   --ocean-player2-color: #ff0000; /* Solid Red */
   --ocean-text-color: #ffffff;

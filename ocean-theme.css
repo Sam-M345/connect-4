@@ -37,8 +37,10 @@ body.ocean-theme {
 
 .ocean-theme #board {
   background-color: var(--ocean-board-bg);
-  border: 3px solid var(--ocean-player1-color); /* Thicker border */
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  border: 3px solid var(--ocean-player1-color); /* Top edge of the board */
+  box-shadow: 0px 8px 0px 0px #000066,
+    /* Thicker dark blue 'edge' */ 0px 12px 20px rgba(0, 0, 0, 0.3); /* Adjusted softer shadow for thicker board */
+  /* border-radius, display, padding, etc. are already defined in the base #board style and inherited or explicitly set */
 }
 
 /* Updated styles for cells in ocean theme - with mechanical borders */

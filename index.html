@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Connect Four</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="game-container">
+      <h1>
+        Connect Four
+        <br />
+        <span class="author">
+          by Sam Mirazi (<a
+            href="https://www.linkedin.com/in/sam-mirazi/"
+            target="_blank"
+            >LinkedIn</a
+          >), (<a href="https://github.com/Sam-M345/connect-4" target="_blank"
+            >GitHub</a
+          >)
+        </span>
+      </h1>
+      <div class="player-info">
+        Current Player: <span id="player-text">Human 🙂</span>
+        <div id="player-indicator" class="player1"></div>
+      </div>
+      <div id="board"></div>
+      <div id="win-message" class="win-message hidden">
+        <div class="message-content">
+          <span id="winner-text"></span>
+          <button id="play-again">Play Again</button>
+        </div>
+      </div>
+      <div class="button-container">
+        <button id="reset-button">Reset Game</button>
+        <button id="ai-start-button">Let AI Start</button>
+      </div>
+    </div>
+    <script src="animation.js"></script>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

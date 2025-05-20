@@ -14,7 +14,7 @@
 }
 
 body.ocean-theme {
-  background-image: url("/assets/images/desktop-H.png"); /* Default to desktop background */
+  background-image: url("../assets/images/desktop-H.png"); /* Default to desktop background */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -26,7 +26,7 @@ body.ocean-theme {
 /* Media Query for Mobile Devices */
 @media (max-width: 767px) {
   body.ocean-theme {
-    background-image: url("/assets/images/mobile-V.png"); /* Switch to mobile background */
+    background-image: url("../assets/images/mobile-V.png"); /* Switch to mobile background */
   }
 }
 

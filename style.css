@@ -39,10 +39,6 @@ h1 {
   gap: 10px;
 }
 
-.current-player-label {
-  background-color: #00ff00; /* Bright Green */
-}
-
 #player-text {
   font-weight: bold;
   margin: 0 8px;

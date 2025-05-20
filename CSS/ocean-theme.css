@@ -14,8 +14,20 @@
 }
 
 body.ocean-theme {
-  background: var(--ocean-bg);
+  background-image: url("/assets/images/desktop-H.png"); /* Default to desktop background */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: var(--ocean-text-color);
+  background-color: #0077be; /* Fallback */
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 767px) {
+  body.ocean-theme {
+    background-image: url("/assets/images/mobile-V.png"); /* Switch to mobile background */
+  }
 }
 
 .ocean-theme h1 {

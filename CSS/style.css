@@ -214,15 +214,16 @@ h1 {
   top: 80px;
   left: 50%;
   transform: translateX(-50%);
-  padding: 25px 50px;
+  padding: 25px;
+  padding-top: 45px;
   border-radius: 15px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  text-align: center;
   font-size: 32px;
   z-index: 1000;
   color: white;
   min-width: 300px;
   background: white;
+  cursor: grab;
 }
 
 .win-message.ai-winner {
@@ -234,6 +235,11 @@ h1 {
 }
 
 .message-content {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -349,6 +355,22 @@ h1 {
 /* Add new class for hiding the button */
 #ai-start-button.hidden {
   display: none;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #555;
+  cursor: pointer;
+  line-height: 1;
+  z-index: 1001;
+}
+
+.close-button:hover {
+  color: #000;
 }
 
 /* Ocean Theme Styles Start */

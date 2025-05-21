@@ -162,4 +162,14 @@ body.ocean-theme {
   background-color: var(--ocean-author-link-color);
   color: var(--ocean-button-hover-bg);
 }
+
+/* Theming for the close button in ocean-theme.css */
+.ocean-theme .win-message .close-button {
+  color: var(--ocean-text-color); /* Match theme text */
+  opacity: 0.7;
+}
+
+.ocean-theme .win-message .close-button:hover {
+  opacity: 1;
+}
 /* Ocean Theme Styles End */

@@ -60,6 +60,106 @@ class Game {
       }, 500);
     });
 
+    // Add event listener for the new close button on the win message
+    const closeWinMessageButton = document.getElementById("close-win-message");
+    if (closeWinMessageButton) {
+      console.log("DEBUG: Close button found, attaching listener."); // DEBUG
+      closeWinMessageButton.addEventListener("click", () => {
+        console.log("DEBUG: Close button clicked!"); // DEBUG
+        this.ui.hideWinMessage();
+      });
+    } else {
+      console.error("DEBUG: Close button NOT found!"); // DEBUG
+    }
+
+    // Make win message draggable
+    const winMessageElement = document.getElementById("win-message");
+    let isDragging = false;
+    let offsetX, offsetY;
+
+    if (winMessageElement) {
+      console.log("DEBUG: Win message element found for dragging."); // DEBUG
+      // Mouse events
+      winMessageElement.addEventListener("mousedown", (e) => {
+        console.log("DEBUG: winMessage mousedown event"); // DEBUG
+        if (
+          e.target.id === "play-again" ||
+          e.target.id === "close-win-message" ||
+          e.target.closest(".message-content")
+        ) {
+          console.log("DEBUG: Drag prevented on button/content."); // DEBUG
+          return;
+        }
+        isDragging = true;
+        offsetX = e.clientX - winMessageElement.getBoundingClientRect().left;
+        offsetY = e.clientY - winMessageElement.getBoundingClientRect().top;
+        winMessageElement.style.cursor = "grabbing";
+        console.log("DEBUG: Dragging started."); // DEBUG
+      });
+
+      document.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        winMessageElement.style.left = `${e.clientX - offsetX}px`;
+        winMessageElement.style.top = `${e.clientY - offsetY}px`;
+        winMessageElement.style.transform = "none";
+      });
+
+      document.addEventListener("mouseup", () => {
+        if (isDragging) {
+          console.log("DEBUG: Dragging ended."); // DEBUG
+          isDragging = false;
+          winMessageElement.style.cursor = "grab";
+        }
+      });
+
+      // Touch events
+      winMessageElement.addEventListener(
+        "touchstart",
+        (e) => {
+          console.log("DEBUG: winMessage touchstart event"); // DEBUG
+          if (
+            e.target.id === "play-again" ||
+            e.target.id === "close-win-message" ||
+            e.target.closest(".message-content")
+          ) {
+            console.log("DEBUG: Drag prevented on button/content (touch)."); // DEBUG
+            return;
+          }
+          isDragging = true;
+          const touch = e.touches[0];
+          offsetX =
+            touch.clientX - winMessageElement.getBoundingClientRect().left;
+          offsetY =
+            touch.clientY - winMessageElement.getBoundingClientRect().top;
+          console.log("DEBUG: Dragging started (touch)."); // DEBUG
+        },
+        { passive: false }
+      );
+
+      document.addEventListener(
+        "touchmove",
+        (e) => {
+          if (!isDragging) return;
+          e.preventDefault();
+          const touch = e.touches[0];
+          winMessageElement.style.left = `${touch.clientX - offsetX}px`;
+          winMessageElement.style.top = `${touch.clientY - offsetY}px`;
+          winMessageElement.style.transform = "none";
+        },
+        { passive: false }
+      );
+
+      document.addEventListener("touchend", () => {
+        if (isDragging) {
+          console.log("DEBUG: Dragging ended (touch)."); // DEBUG
+          isDragging = false;
+        }
+      });
+    } else {
+      console.error("DEBUG: Win message element NOT found for dragging!"); // DEBUG
+    }
+
     window.addEventListener("resize", () => {
       this.board.createBoard();
       // Redraw current game state

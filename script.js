@@ -1,3 +1,4 @@
+//  this is a test
 import { Board } from "./game/board.js";
 import { GameLogic } from "./game/gameLogic.js";
 import { UI } from "./game/ui.js";

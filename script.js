@@ -168,7 +168,7 @@ class Game {
         row.forEach((cell, colIndex) => {
           if (cell !== 0) {
             this.board.updateCell(rowIndex, colIndex, cell);
-          }
+          }  // test comment added to line 170
         });
       });
     });

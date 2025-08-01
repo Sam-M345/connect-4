@@ -549,4 +549,43 @@ body.ocean-theme {
   background-color: var(--ocean-author-link-color); /* Lighter sandy on hover */
   color: var(--ocean-button-hover-bg);
 }
+/* Start Overlay Styles */
+#start-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+#start-btn {
+  background: linear-gradient(135deg, #4caf50, #45a049);
+  color: white;
+  border: none;
+  padding: 20px 40px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+#start-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Ocean Theme for Start Overlay */
+.ocean-theme #start-btn {
+  background: linear-gradient(135deg, var(--ocean-button-bg), var(--ocean-button-hover-bg));
+  border: 2px solid var(--ocean-text-color);
+}
+
+.ocean-theme #start-btn:hover {
+  background: linear-gradient(135deg, var(--ocean-button-hover-bg), #003d5c);
+}
+
 /* Ocean Theme Styles End */

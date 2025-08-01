@@ -178,63 +178,56 @@ class Game {
     const audio = document.getElementById("background-music");
     const musicToggle = document.getElementById("music-toggle");
     const volumeSlider = document.getElementById("volume-slider");
-    
+    const startBtn = document.getElementById("start-btn");
+    const overlay = document.getElementById("start-overlay");
+
     // Set initial volume
-    audio.volume = 0.3;
-    
-    // Music toggle functionality
-    let isPlaying = false;
-    
-    musicToggle.addEventListener("click", async () => {
-      try {
-        if (isPlaying) {
-          audio.pause();
-          musicToggle.textContent = "🔇";
-          musicToggle.title = "Play Music";
-          isPlaying = false;
-        } else {
-          await audio.play();
-          musicToggle.textContent = "🎵";
-          musicToggle.title = "Pause Music";
-          isPlaying = true;
-        }
-      } catch (error) {
-        console.error("Audio playback failed:", error);
-        // Fallback - try to play on next user interaction
-        document.addEventListener("click", async () => {
-          try {
-            await audio.play();
-            musicToggle.textContent = "🎵";
-            isPlaying = true;
-          } catch (e) {
-            console.log("Audio still blocked:", e);
-          }
-        }, { once: true });
+    audio.volume = volumeSlider.value / 100;
+
+    const kickOff = async () => {
+      try { 
+        await audio.play(); 
+      }
+      catch (e) { 
+        console.error("Audio failed:", e); 
+      }
+      overlay.remove();
+      document.removeEventListener("keydown", kickOff);
+    };
+
+    startBtn.addEventListener("click", kickOff);
+    // Extra accessibility: also allow Enter/Space
+    document.addEventListener("keydown", e => {
+      if (e.code === "Enter" || e.code === "Space") kickOff();
+    });
+
+    // --- Event Listeners ---
+    musicToggle.addEventListener("click", () => {
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
       }
     });
-    
-    // Volume control
+
     volumeSlider.addEventListener("input", (e) => {
       audio.volume = e.target.value / 100;
     });
-    
-    // Auto-start music on first user interaction (browser requirement)
-    const startMusic = async () => {
-      try {
-        await audio.play();
-        musicToggle.textContent = "🎵";
-        isPlaying = true;
-        document.removeEventListener("click", startMusic);
-      } catch (error) {
-        console.log("Auto-play blocked - user can manually start music");
-      }
-    };
-    
-    document.addEventListener("click", startMusic, { once: true });
-    
-    // Audio error handling
+
+    audio.addEventListener('play', () => {
+      musicToggle.textContent = "🎵";
+      musicToggle.title = "Pause Music";
+    });
+
+    audio.addEventListener('pause', () => {
+      musicToggle.textContent = "🔇";
+      musicToggle.title = "Play Music";
+    });
+
     audio.addEventListener('error', (e) => {
       console.error("Audio error:", e);
+      musicToggle.textContent = "🔇";
+      musicToggle.title = "Play Music";
     });
   }
 

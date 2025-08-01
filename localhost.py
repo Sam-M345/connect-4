@@ -1,4 +1,7 @@
 from livereload import Server
+import webbrowser
+import threading
+import time
 
 PORT = 3000
 
@@ -14,8 +17,15 @@ server.watch('animation.js')
 server.watch('script.js')
 server.watch('game/*.js') # Watches all .js files in the 'game' directory
 
+def open_browser():
+    time.sleep(1)  # Wait for server to start
+    webbrowser.open(f'http://localhost:{PORT}')
+
 print(f"Starting live-reloading server at http://localhost:{PORT}")
 print("Stop the server with Ctrl+C")
+
+# Start browser in separate thread
+threading.Thread(target=open_browser, daemon=True).start()
 
 # server.serve() is a blocking call
 server.serve(port=PORT, host='0.0.0.0', root='.') 
